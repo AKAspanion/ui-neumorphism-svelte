@@ -1,0 +1,34 @@
+<script lang="ts">
+	import type { CardProps } from './Card.types.ts';
+	import { getClasses } from '../../utils/cs.js';
+	import './Card.css';
+
+	type $$Props = CardProps;
+
+	export let dark = false;
+	export let flat = false;
+	export let inset = false;
+	export let rounded = false;
+	export let bordered = false;
+	export let outlined = false;
+	export let elevation = 1;
+
+	const getClass = () => {
+		const cardElevation = !isNaN(elevation) ? String(elevation) : null;
+		return getClasses(
+			`nu-card
+			${flat ? 'nu-card--flat' : ''}
+			elevation-${cardElevation || 1}
+			${inset ? 'nu-card--inset' : ''}
+			nu-card--${dark ? 'dark' : 'light'}
+			${rounded ? 'nu-card--rounded' : ''}
+			${bordered ? 'nu-card--bordered' : ''}
+			${outlined ? 'nu-card--outlined' : ''}
+			${$$restProps.class}`
+		);
+	};
+</script>
+
+<div class={getClass()} style={$$restProps.style}>
+	<slot />
+</div>
