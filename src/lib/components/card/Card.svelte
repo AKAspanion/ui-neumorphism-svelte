@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CardProps } from './Card.types.ts';
-	import { getClasses } from '../../utils/cs.js';
+	import { getClasses } from '@lib/utils/cs';
 	import './Card.css';
 
 	type $$Props = CardProps;
@@ -11,6 +11,7 @@
 	export let rounded = false;
 	export let bordered = false;
 	export let outlined = false;
+	export let container = false;
 	export let elevation = 1;
 
 	const getClass = () => {
@@ -24,6 +25,7 @@
 			${rounded ? 'nu-card--rounded' : ''}
 			${bordered ? 'nu-card--bordered' : ''}
 			${outlined ? 'nu-card--outlined' : ''}
+			${container ? 'nu-card--container' : ''}
 			${$$restProps.class}`
 		);
 	};

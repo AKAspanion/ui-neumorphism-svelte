@@ -116,6 +116,10 @@
 	box-shadow: none;
 }
 
+.nu-card.nu-card--container {
+	border-radius: 0px !important;
+}
+
 .nu-card.nu-card--outlined,
 .nu-card.nu-card--flat {
 	box-shadow: none !important;

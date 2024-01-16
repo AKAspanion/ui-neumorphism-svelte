@@ -6,10 +6,12 @@
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
+		"prepackage": "npm run clean",
 		"prepublishOnly": "npm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
+		"clean": "rm -rf dist",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},

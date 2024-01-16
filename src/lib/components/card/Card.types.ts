@@ -13,6 +13,7 @@ export type CardProps = {
 	minWidth?: number;
 	outlined?: boolean;
 	rounded?: boolean;
+	container?: boolean;
 	class?: string;
 	width?: string;
 };
