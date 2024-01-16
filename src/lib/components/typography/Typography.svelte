@@ -8,8 +8,13 @@
 	export let dark = false;
 	export let disabled = false;
 	export let secondary = false;
-	export let className = '';
 	export let type = 'body-1';
+
+	let element: HTMLDivElement;
+
+	export function getElement() {
+		return element;
+	}
 
 	const getTypographyType = () => {
 		return disabled ? 'disabled' : secondary ? 'secondary' : 'primary';
@@ -21,11 +26,11 @@
             nu-${type || 'body-1'}
             nu-typography--${getTypographyType()}
             nu-typography--${dark ? 'dark' : 'light'}
-			${className}
+			${$$restProps.class}
         `);
 	};
 </script>
 
-<div class={getClass()} style={$$restProps.style}>
+<div {...$$restProps} bind:this={element} class={getClass()}>
 	<slot />
 </div>

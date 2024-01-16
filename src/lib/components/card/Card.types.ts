@@ -1,4 +1,6 @@
-export type CardProps = {
+import type { CommonProps } from '@lib/types/common';
+
+export type CardProps = CommonProps & {
 	bordered?: boolean;
 	disabled?: boolean;
 	dark?: boolean;
@@ -14,6 +16,5 @@ export type CardProps = {
 	outlined?: boolean;
 	rounded?: boolean;
 	container?: boolean;
-	class?: string;
 	width?: string;
 };

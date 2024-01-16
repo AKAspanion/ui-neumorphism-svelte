@@ -2,6 +2,6 @@
 
 export type CommonProps = {
 	dark?: boolean;
-	className?: string;
+	class?: string;
 	style?: string;
 };

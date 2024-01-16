@@ -14,6 +14,12 @@
 	export let container = false;
 	export let elevation = 1;
 
+	let element: HTMLDivElement;
+
+	export function getElement() {
+		return element;
+	}
+
 	const getClass = () => {
 		const cardElevation = !isNaN(elevation) ? String(elevation) : null;
 		return getClasses(
@@ -31,6 +37,6 @@
 	};
 </script>
 
-<div class={getClass()} style={$$restProps.style}>
+<div {...$$restProps} bind:this={element} class={getClass()}>
 	<slot />
 </div>
