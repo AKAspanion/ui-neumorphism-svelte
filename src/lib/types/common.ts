@@ -3,7 +3,6 @@
 import type { ALTERNATE_BUTONS, SIZES } from '@lib/assets';
 
 export type CommonProps = {
-	dark?: boolean;
 	class?: string;
 	style?: string;
 };

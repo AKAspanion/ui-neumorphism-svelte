@@ -2,15 +2,17 @@
 	import type { ButtonProps } from './Button.types.js';
 	import { styleToString } from '@lib/utils/style';
 	import { getClasses } from '@lib/utils/cs';
+	import { getTheme } from '@lib/theme';
 	import { SIZES } from '@lib/assets';
 	import type { ButtonType } from '@lib/types/common';
 	import './Button.css';
+
+	const theme = getTheme();
 
 	type $$Props = ButtonProps;
 
 	export let type: ButtonType | undefined = undefined;
 	export let id = '';
-	export let dark = false;
 	export let color: string = '';
 	export let bgColor: string = '';
 	export let size = 'medium';
@@ -28,7 +30,7 @@
 		return SIZES.find((s) => s === size) || 'medium';
 	};
 
-	const getClass = (classType: string) => {
+	const getClass = (classType: string, dark: boolean) => {
 		switch (classType) {
 			case 'container':
 				return getClasses(`
@@ -68,14 +70,14 @@
 	on:mouseleave
 	tabindex="0"
 	role="button"
-	class={`${getClass('container')} ${$$restProps.class || ''}`}
+	class={`${getClass('container', $theme.dark)} ${$$restProps.class || ''}`}
 	style={`${styleToString({
 		color: disabled ? null : color,
 		backgroundColor: disabled ? null : bgColor,
 		border: disabled ? null : outlined ? `1px solid ${color}` : null
 	})} ${$$restProps.style}`}
 >
-	<button class={getClass('input')}>
+	<button class={getClass('input', $theme.dark)}>
 		<slot />
 	</button>
 </div>

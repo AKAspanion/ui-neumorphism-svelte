@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { getClasses } from '@lib/utils/cs';
+	import { getTheme } from '@lib';
 	import type { TypographyProps } from './Typography.types';
 	import './Typography.css';
 
 	type $$Props = TypographyProps;
 
-	export let dark = false;
+	const theme = getTheme();
+
 	export let disabled = false;
 	export let secondary = false;
 	export let type = 'body-1';
@@ -20,7 +22,7 @@
 		return disabled ? 'disabled' : secondary ? 'secondary' : 'primary';
 	};
 
-	const getClass = () => {
+	const getClass = (dark: boolean) => {
 		return getClasses(`
             nu-typography
             nu-${type || 'body-1'}
@@ -31,6 +33,6 @@
 	};
 </script>
 
-<div {...$$restProps} bind:this={element} class={getClass()}>
+<div {...$$restProps} bind:this={element} class={getClass($theme.dark)}>
 	<slot />
 </div>

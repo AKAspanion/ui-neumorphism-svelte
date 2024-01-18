@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { CardProps } from './Card.types.ts';
 	import { getClasses } from '@lib/utils/cs';
+	import { getTheme } from '@lib/theme/index';
 	import './Card.css';
+
+	const theme = getTheme();
 
 	type $$Props = CardProps;
 
-	export let dark = false;
 	export let flat = false;
 	export let inset = false;
 	export let rounded = false;
@@ -20,7 +22,7 @@
 		return element;
 	}
 
-	const getClass = () => {
+	const getClass = (dark: boolean) => {
 		const cardElevation = !isNaN(elevation) ? String(elevation) : null;
 		return getClasses(
 			`nu-card
@@ -37,6 +39,6 @@
 	};
 </script>
 
-<div {...$$restProps} bind:this={element} class={getClass()}>
+<div {...$$restProps} bind:this={element} class={getClass($theme.dark)}>
 	<slot />
 </div>

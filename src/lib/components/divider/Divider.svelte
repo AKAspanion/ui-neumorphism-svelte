@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { getClasses } from '@lib/utils/cs';
+	import { getTheme } from '@lib/theme';
 	import './Divider.css';
 
-	export let dark: boolean = false;
+	const theme = getTheme();
+
 	export let dense: boolean = false;
 	export let elevated: boolean = false;
 
-	const getClass = () => {
+	const getClass = (dark: boolean) => {
 		return getClasses(`
             nu-divider
             ${dense ? 'nu-divider--dense' : ''}
@@ -17,4 +19,4 @@
 	};
 </script>
 
-<hr class={getClass()} />
+<hr class={getClass($theme.dark)} />

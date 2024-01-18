@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { Card, H3, H6, Icon, IconButton } from '@lib';
 	import { ToggleButton } from '@lib/components/toggle-button';
+	import { getTheme, toggleDarkTheme } from '@lib/theme';
 	import { mdiNpm, mdiMenu, mdiGithub, mdiLightbulb, mdiLightbulbOutline } from '@mdi/js';
 
 	import { createEventDispatcher } from 'svelte';
+
+	const theme = getTheme();
 
 	export let dark = false;
 	export let size: 'sm' | 'xs' | undefined = undefined;
@@ -18,6 +21,7 @@
 
 	const onDarkChange = () => {
 		dispatch('darkchange');
+		theme.update(({ dark }) => ({ dark: !dark }));
 	};
 
 	const openNPM = () => {
@@ -28,7 +32,7 @@
 	};
 </script>
 
-<Card flat {dark} class={'flex items-center justify-between'}>
+<Card flat class={'flex items-center justify-between'}>
 	<Card flat class="flex align-center gap-2">
 		{#if isSmall}
 			<IconButton on:click={onMenuClick}>

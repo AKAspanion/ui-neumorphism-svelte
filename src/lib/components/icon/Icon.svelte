@@ -3,7 +3,6 @@
 
 	type $$Props = IconProps;
 
-	export let color = '';
 	export let flip = '';
 	export let path = '';
 	export let size = 1;
@@ -23,7 +22,7 @@
 			styles.push(['height', width]);
 		}
 
-		styles.push(['fill', color !== null ? color : 'currentColor']);
+		styles.push(['fill', 'currentColor']);
 
 		if (flip === 'h') {
 			transform.push('scaleX(-1)');
@@ -46,11 +45,9 @@
 			return `${cur} ${item[0]}:${item[1]};`;
 		}, '');
 	};
-
-	$: style = getStyles();
 </script>
 
-<svg viewBox="0 0 24 24" {style}>
+<svg viewBox="0 0 24 24" style={getStyles()}>
 	{#if title}<title>{title}</title>{/if}
 	<path d={path}></path>
 </svg>
