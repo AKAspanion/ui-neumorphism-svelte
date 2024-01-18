@@ -6,6 +6,8 @@
 	import type { ButtonType } from '@lib/types/common';
 	import './Button.css';
 
+	type $$Props = ButtonProps;
+
 	export let type: ButtonType | undefined = undefined;
 	export let id = '';
 	export let dark = false;
@@ -22,8 +24,6 @@
 	export let outlined = false;
 	export let depressed = false;
 
-	type $$Props = ButtonProps;
-
 	const getValidSize = () => {
 		return SIZES.find((s) => s === size) || 'medium';
 	};
@@ -31,24 +31,22 @@
 	const getClass = (classType: string) => {
 		switch (classType) {
 			case 'container':
-				return getClasses(
-					`
-            nu-button
-            cursor-pointer
-            nu-button--${type}
-            ${text ? 'nu-button--text' : ''}
-            ${block ? 'nu-button--block' : ''}
-            ${active ? 'nu-button--active' : ''}
-            nu-button--${getValidSize()}
-            nu-button--${dark ? 'dark' : 'light'}
-            ${rounded ? 'nu-button--rounded' : ''}
-            ${noPress ? 'nu-button--no-press' : ''}
-            ${outlined ? 'nu-button--outlined' : ''}
-            ${bordered ? 'nu-button--bordered' : ''}
-            ${disabled ? 'nu-button--disabled' : ''}
-            ${depressed ? 'nu-button--depressed' : ''}
-          `
-				);
+				return getClasses(`
+					nu-button
+					cursor-pointer
+					nu-button--${type}
+					${text ? 'nu-button--text' : ''}
+					${block ? 'nu-button--block' : ''}
+					${active ? 'nu-button--active' : ''}
+					nu-button--${getValidSize()}
+					nu-button--${dark ? 'dark' : 'light'}
+					${rounded ? 'nu-button--rounded' : ''}
+					${noPress ? 'nu-button--no-press' : ''}
+					${outlined ? 'nu-button--outlined' : ''}
+					${bordered ? 'nu-button--bordered' : ''}
+					${disabled ? 'nu-button--disabled' : ''}
+					${depressed ? 'nu-button--depressed' : ''}
+				`);
 			case 'input':
 				return getClasses('nu-button-inner');
 			default:
@@ -70,12 +68,12 @@
 	on:mouseleave
 	tabindex="0"
 	role="button"
-	class={`${getClass('container')} ${$$restProps.class}`}
+	class={`${getClass('container')} ${$$restProps.class || ''}`}
 	style={`${styleToString({
 		color: disabled ? null : color,
 		backgroundColor: disabled ? null : bgColor,
 		border: disabled ? null : outlined ? `1px solid ${color}` : null
-	})}`}
+	})} ${$$restProps.style}`}
 >
 	<button class={getClass('input')}>
 		<slot />

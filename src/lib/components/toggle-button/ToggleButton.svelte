@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Button from '../button/Button.svelte';
 	import { createEventDispatcher } from 'svelte';
+	import type { ToggleButtonProps } from './ToggleButton.types';
+
+	type $$Props = ToggleButtonProps;
 
 	export let value: boolean = false;
 	export let color: string = '';

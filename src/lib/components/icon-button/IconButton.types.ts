@@ -1,3 +1,3 @@
-import type { CommonProps } from '@lib/types/common';
+import type { ButtonProps } from '../button/Button.types';
 
-export type IconButtonProps = CommonProps;
+export type IconButtonProps = Omit<ButtonProps, 'type' | 'text' | 'block' | 'depressed'>;
