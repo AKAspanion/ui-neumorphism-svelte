@@ -1,28 +1,35 @@
 <script lang="ts">
+	import ThemeProvider from '@lib/theme/ThemeProvider.svelte';
 	import { Header } from '@components/header';
+	import { Footer } from '@components/footer';
 	import { Card, Divider } from '@lib';
 	import '@lib/index.css';
 	import '../app.css';
-	import ThemeProvider from '@lib/theme/ThemeProvider.svelte';
 
 	const onMenuClick = () => {
 		console.log('menu click');
 	};
 </script>
 
-<div class="relative flex min-h-screen flex-col bg-background" id="page">
-	<ThemeProvider>
-		<Card flat container class="p-6">
+<ThemeProvider>
+	<Card
+		container
+		style="height: calc(100vh);"
+		class="relative flex min-h-screen flex-col bg-background"
+	>
+		<Card flat class="p-6">
 			<Card>
-				<Card flat container class="px-6">
-					<Header dark={false} on:menuclick={onMenuClick} on:darkchange={onMenuClick} />
+				<Card flat class="px-6">
+					<Header on:menuclick={onMenuClick} on:darkchange={onMenuClick} />
 				</Card>
 				<Divider dense />
-				<Card flat container class="p-6">
+				<Card flat class="p-6">
 					<slot />
 				</Card>
-				<!-- footer -->
+				<Card flat>
+					<Footer />
+				</Card>
 			</Card>
 		</Card>
-	</ThemeProvider>
-</div>
+	</Card>
+</ThemeProvider>

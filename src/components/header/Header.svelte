@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, H3, H6, Icon, IconButton } from '@lib';
+	import { Card, H3, H6, Icon, IconButton, Subtitle2 } from '@lib';
 	import { ToggleButton } from '@lib/components/toggle-button';
 	import { getTheme, toggleDarkTheme } from '@lib/theme';
 	import { mdiNpm, mdiMenu, mdiGithub, mdiLightbulb, mdiLightbulbOutline } from '@mdi/js';
@@ -8,7 +8,6 @@
 
 	const theme = getTheme();
 
-	export let dark = false;
 	export let size: 'sm' | 'xs' | undefined = undefined;
 
 	let dispatch = createEventDispatcher();
@@ -30,6 +29,8 @@
 	const openGithub = () => {
 		window.open('https://github.com/AKAspanion/ui-neumorphism-svelte', '_blank');
 	};
+
+	$: IS_DEV = process.env.NODE_ENV === 'development';
 </script>
 
 <Card flat class={'flex items-center justify-between'}>
@@ -39,11 +40,20 @@
 				<Icon path={mdiMenu} size={1} />
 			</IconButton>
 		{/if}
-		<div class="pt-1">
+		<div class="pt-1 flex items-center gap-4">
 			{#if isSmall}
-				<H6 style="color: var(--primary);">UI-Neumorphism</H6>
+				<H3 style="color: var(--primary);">
+					<a href="/"> UI-Neumorphism </a>
+				</H3>
 			{:else}
-				<H3 style="color: var(--primary);">UI-Neumorphism</H3>
+				<H3 style="color: var(--primary);">
+					<a href="/"> UI-Neumorphism </a>
+				</H3>
+				{#if IS_DEV}
+					<Subtitle2 class="pt-3">
+						<a href="test"> Test </a>
+					</Subtitle2>
+				{/if}
 			{/if}
 		</div>
 	</Card>
@@ -55,7 +65,7 @@
 			<Icon path={mdiGithub} size={1} />
 		</IconButton>
 		<ToggleButton on:change={onDarkChange}>
-			<Icon path={dark ? mdiLightbulbOutline : mdiLightbulb} size={1} />
+			<Icon path={$theme.dark ? mdiLightbulbOutline : mdiLightbulb} size={1} />
 		</ToggleButton>
 	</Card>
 </Card>
