@@ -11,10 +11,10 @@
 
 	type $$Props = ButtonProps;
 
-	export let type: ButtonType | undefined = undefined;
+	export let type = 'none';
 	export let id = '';
-	export let color: string = '';
-	export let bgColor: string = '';
+	export let color = '';
+	export let bgColor = '';
 	export let size = 'medium';
 	export let text = false;
 	export let block = false;

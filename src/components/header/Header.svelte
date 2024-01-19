@@ -51,7 +51,7 @@
 				</H3>
 				{#if IS_DEV}
 					<Subtitle2 class="pt-3">
-						<a href="test"> Test </a>
+						<a href="showcase">Showcase</a>
 					</Subtitle2>
 				{/if}
 			{/if}

@@ -28,7 +28,7 @@
             nu-${type || 'body-1'}
             nu-typography--${getTypographyType()}
             nu-typography--${dark ? 'dark' : 'light'}
-			${$$restProps.class}
+			${$$restProps.class || ''}
         `);
 	};
 </script>

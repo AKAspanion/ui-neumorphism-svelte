@@ -14,7 +14,7 @@
             ${dense ? 'nu-divider--dense' : ''}
             nu-divider--${dark ? 'dark' : 'light'}
             ${elevated ? 'nu-divider--elevated' : ''}
-            ${$$restProps.class}
+            ${$$restProps.class || ''}
         `);
 	};
 </script>

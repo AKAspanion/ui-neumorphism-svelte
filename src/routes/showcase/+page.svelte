@@ -1,14 +1,58 @@
 <script lang="ts">
-	import { Avatar, Alert, H6, Badge } from '@lib';
+	import { Avatar, Alert, H6, Badge, Button, Fab } from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import { mdiBell, mdiCalendar, mdiCheckCircle, mdiFolder } from '@mdi/js';
 </script>
 
 <div>
 	<div>------------------------------------------------------------------------------</div>
+	<H6>Fab</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center">
+		<Fab>
+			<span style="font-size: 30px;margin-bottom: 3px;">&#43;</span>
+		</Fab>
+		<Fab color="var(--primary)">
+			<span style="font-size: 24px;">&#9733;</span>
+		</Fab>
+		<Fab color="#299ae6">
+			&nbsp;<span style="font-size: 24px;">&#9729;</span>&nbsp;Extended&nbsp;
+		</Fab>
+		<Fab disabled>
+			<span style="font-size: 24px;">&#9762;</span>
+		</Fab>
+		<Fab size="small">S</Fab>
+		<Fab size="medium">M</Fab>
+		<Fab size="large">L</Fab>
+	</div>
+	<div class="mb-6" />
+
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Button</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center">
+		<Button>default</Button>
+		<Button color="var(--primary)">colored</Button>
+		<Button color="#ccc" bgColor="var(--primary)">colored</Button>
+		<Button disabled>disabled</Button>
+		<Button rounded>rounded</Button>
+		<Button depressed>depressed</Button>
+		<Button outlined>outlined</Button>
+		<Button text>text</Button>
+		<Button size="small">small</Button>
+		<Button size="medium">medium</Button>
+		<Button size="large">large</Button>
+	</div>
+	<div class="mb-6" />
+	<div>
+		<Button block>block button</Button>
+	</div>
+
+	<div class="mb-6" />
+	<div>------------------------------------------------------------------------------</div>
 	<H6>Badge</H6>
 	<div class="mb-6" />
-	<div class="flex gap-6">
+	<div class="flex gap-6 items-center">
 		<Badge content={2}>
 			<Icon path={mdiBell} size={1} />
 		</Badge>
@@ -83,7 +127,7 @@
 
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Avatar</H6>
-	<div class="flex gap-6">
+	<div class="flex gap-6 items-center">
 		<Avatar square bgColor="var(--warning)">
 			<Icon path={mdiFolder} size={1} />
 		</Avatar>

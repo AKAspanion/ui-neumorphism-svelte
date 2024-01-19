@@ -34,7 +34,7 @@
 			${bordered ? 'nu-card--bordered' : ''}
 			${outlined ? 'nu-card--outlined' : ''}
 			${container ? 'nu-card--container' : ''}
-			${$$restProps.class}`
+			${$$restProps.class || ''}`
 		);
 	};
 </script>

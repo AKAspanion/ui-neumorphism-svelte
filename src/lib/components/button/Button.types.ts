@@ -6,6 +6,7 @@ export type ButtonProps = CommonProps & {
 	dark?: boolean;
 	size?: SizesType;
 	color?: string;
+	bgColor?: string;
 	text?: boolean;
 	block?: boolean;
 	active?: boolean;

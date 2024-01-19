@@ -23,7 +23,7 @@
 					<Header on:menuclick={onMenuClick} on:darkchange={onMenuClick} />
 				</Card>
 				<Divider dense />
-				<Card flat class="p-6">
+				<Card flat class="p-6" style="height: calc(100vh - 130px);overflow-y: auto;">
 					<slot />
 				</Card>
 				<Card flat>
