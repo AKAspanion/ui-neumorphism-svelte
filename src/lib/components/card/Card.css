@@ -50,7 +50,8 @@
 	--bg-color: var(--light-bg);
 	--text-color: var(--g-text-color-light);
 	--border-color: var(--light-bg-dark-shadow);
-	--box-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+	--box-shadow: 3px 3px 6px var(--light-bg-dark-shadow),
+		-3px -3px 6px var(--light-bg-light-shadow);
 	--box-shadow-2: 6px 6px 12px var(--light-bg-dark-shadow),
 		-6px -6px 12px var(--light-bg-light-shadow);
 	--box-shadow-3: 9px 9px 18px var(--light-bg-dark-shadow),
