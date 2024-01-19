@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { getClasses } from '@lib/utils/cs';
+	import { classes } from '@lib/utils/cs';
 	import { getTheme } from '@lib';
 	import type { TypographyProps } from './Typography.types';
 	import './Typography.css';
+	import { normalize } from '@lib/utils/fn';
 
 	type $$Props = TypographyProps;
 
@@ -23,12 +24,12 @@
 	};
 
 	const getClass = (dark: boolean) => {
-		return getClasses(`
+		return classes(`
             nu-typography
             nu-${type || 'body-1'}
             nu-typography--${getTypographyType()}
             nu-typography--${dark ? 'dark' : 'light'}
-			${$$restProps.class || ''}
+			${normalize($$restProps.class)}
         `);
 	};
 </script>

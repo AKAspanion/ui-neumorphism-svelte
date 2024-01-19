@@ -5,6 +5,7 @@
 	import type { SizesType } from '@lib/types/common';
 	import { onMount } from 'svelte';
 	import './Avatar.css';
+	import { normalize } from '@lib/utils/fn';
 
 	type $$Props = AvatarProps;
 
@@ -43,7 +44,7 @@
                 nu-avatar
                 nu-avatar--${variant}
                 ${sizeClass}
-                ${$$restProps.class || ''}
+                ${normalize($$restProps.class)}
         `);
 			case 'img':
 				return classes('nu-avatar--img');
@@ -54,7 +55,7 @@
 		const sizeStyle = typeof size === 'number' ? `width: ${size}px;height: ${size}px;` : '';
 		const colorVar = color ? `--avatar-text-color:${color};` : '';
 		const bgColorVar = bgColor ? `--avatar-bg-color:${bgColor};` : '';
-		return `${colorVar}${bgColorVar}${sizeStyle}${$$restProps.style || ''}`;
+		return `${colorVar}${bgColorVar}${sizeStyle}${normalize($$restProps.style)}`;
 	};
 
 	onMount(() => {

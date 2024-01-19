@@ -29,7 +29,6 @@
 	color: var(--badge-text-color);
 	min-width: var(--badge-height);
 	background: var(--badge-bg-color);
-	transition: 0.3s ease-in-out;
 }
 
 .nu-badge--inline .nu-badge--badge {

@@ -3,6 +3,7 @@
 	import type { BadgeProps } from './Badge.types';
 	import './Badge.css';
 	import BadgeContent from './BadgeContent.svelte';
+	import { normalize } from '@lib/utils/fn';
 
 	type $$Props = BadgeProps;
 
@@ -28,7 +29,7 @@
 				return classes(`
                     nu-badge
                     ${inline ? 'nu-badge--inline' : ''}
-                    ${$$restProps.class || ''}`);
+                    ${normalize($$restProps.class)}`);
 			case 'badge':
 				return classes(`
                     nu-badge--badge
@@ -55,7 +56,7 @@
 		const bgColorVar = bgColor ? `--badge-bg-color:${bgColor};` : '';
 		const colorVar = color ? `--badge-text-color:${color};` : '';
 		const borderColorVar = borderColor ? `--badge-border-color:${borderColor};` : '';
-		return `${bgColorVar}${colorVar}${borderColorVar}${$$restProps.style || ''}`;
+		return `${bgColorVar}${colorVar}${borderColorVar}${normalize($$restProps.style)}`;
 	};
 </script>
 

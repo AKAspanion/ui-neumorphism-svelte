@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { ButtonProps } from './Button.types.js';
 	import { styleToString } from '@lib/utils/style';
-	import { getClasses } from '@lib/utils/cs';
+	import { normalize } from '@lib/utils/fn';
+	import { classes } from '@lib/utils/cs';
 	import { getTheme } from '@lib/theme';
 	import { SIZES } from '@lib/assets';
 	import type { ButtonType } from '@lib/types/common';
@@ -30,10 +31,10 @@
 		return SIZES.find((s) => s === size) || 'medium';
 	};
 
-	const getClass = (classType: string, dark: boolean) => {
+	const getClasses = (classType: string, dark: boolean) => {
 		switch (classType) {
 			case 'container':
-				return getClasses(`
+				return classes(`
 					nu-button
 					cursor-pointer
 					nu-button--${type}
@@ -50,7 +51,7 @@
 					${depressed ? 'nu-button--depressed' : ''}
 				`);
 			case 'input':
-				return getClasses('nu-button-inner');
+				return classes('nu-button-inner');
 			default:
 				break;
 		}
@@ -70,14 +71,14 @@
 	on:mouseleave
 	tabindex="0"
 	role="button"
-	class={`${getClass('container', $theme.dark)} ${$$restProps.class || ''}`}
+	class={`${getClasses('container', $theme.dark)} ${normalize($$restProps.class)}`}
 	style={`${styleToString({
 		color: disabled ? null : color,
 		backgroundColor: disabled ? null : bgColor,
 		border: disabled ? null : outlined ? `1px solid ${color}` : null
 	})} ${$$restProps.style}`}
 >
-	<button class={getClass('input', $theme.dark)}>
+	<button class={getClasses('input', $theme.dark)}>
 		<slot />
 	</button>
 </div>

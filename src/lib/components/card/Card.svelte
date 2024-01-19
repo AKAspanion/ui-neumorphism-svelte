@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { CardProps } from './Card.types.ts';
-	import { getClasses } from '@lib/utils/cs';
+	import { classes } from '@lib/utils/cs';
 	import { getTheme } from '@lib/theme/index';
 	import './Card.css';
+	import { normalize } from '@lib/utils/fn';
 
 	const theme = getTheme();
 
@@ -24,7 +25,7 @@
 
 	const getClass = (dark: boolean) => {
 		const cardElevation = !isNaN(elevation) ? String(elevation) : null;
-		return getClasses(
+		return classes(
 			`nu-card
 			${flat ? 'nu-card--flat' : ''}
 			elevation-${cardElevation || 1}
@@ -34,7 +35,7 @@
 			${bordered ? 'nu-card--bordered' : ''}
 			${outlined ? 'nu-card--outlined' : ''}
 			${container ? 'nu-card--container' : ''}
-			${$$restProps.class || ''}`
+			${normalize($$restProps.class)}`
 		);
 	};
 </script>

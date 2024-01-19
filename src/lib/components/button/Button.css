@@ -12,7 +12,6 @@
 	height: var(--btn-height);
 	box-shadow: var(--box-shadow);
 	background-color: var(--bg-color);
-	transition: box-shadow 200ms ease-in-out;
 	-webkit-tap-highlight-color: transparent !important;
 }
 
@@ -117,6 +116,7 @@
 .nu-button.nu-button--disabled {
 	opacity: 0.6;
 	pointer-events: none;
+	cursor: not-allowed;
 	--border-color: var(--text-color-disabled);
 	--text-color: var(--text-color-disabled);
 }
@@ -143,6 +143,7 @@
 }
 
 .nu-button:hover {
+	transition: box-shadow 200ms ease-in-out;
 	box-shadow: var(--box-shadow-hover);
 }
 

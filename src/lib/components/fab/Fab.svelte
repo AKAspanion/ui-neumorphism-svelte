@@ -3,6 +3,7 @@
 	import { Button } from '../button';
 	import type { FABProps } from './Fab.types';
 	import './Fab.css';
+	import { normalize } from '@lib/utils/fn';
 
 	type $$Props = FABProps;
 
@@ -24,7 +25,7 @@
             ${fixed ? 'nu-fab--fixed' : ''}
             ${absolute ? 'nu-fab--absolute' : ''}
             ${animation ? 'nu-fab--animation' : ''}
-            ${$$restProps.class || ''}
+            ${normalize($$restProps.class)}
       `);
 	};
 </script>

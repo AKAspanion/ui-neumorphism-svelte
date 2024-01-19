@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { AlertProps } from './Alert.types.ts';
 	import { classes } from '@lib/utils/cs';
+	import { normalize } from '@lib/utils/fn';
 	import { Card } from '../card';
 	import { Spacer } from '../spacer';
 	import { IconButton } from '../icon-button';
@@ -28,7 +29,7 @@
                     ${outlined ? 'nu-alert--outlined' : ''}
                     ${closable ? 'nu-alert--closable' : ''}
                     ${border ? `nu-alert--border-${border}` : ''}
-                    ${$$restProps.class || ''}
+                    ${normalize($$restProps.class)}
                 `);
 			default:
 				return classes(name);
