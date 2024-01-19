@@ -14,3 +14,5 @@ export const getClasses = (classNames: string) => {
 		.join(' ')
 		.trim();
 };
+
+export const classes = getClasses;

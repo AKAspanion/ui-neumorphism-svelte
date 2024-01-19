@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { ALTERNATE_BUTONS, SIZES } from '@lib/assets';
+import type { ALTERNATE_BUTONS, CONTEXT_COLORS, POSITIONS, SIZES } from '@lib/assets';
 
 export type CommonProps = {
 	class?: string;
@@ -9,3 +9,5 @@ export type CommonProps = {
 
 export type SizesType = (typeof SIZES)[number];
 export type ButtonType = (typeof ALTERNATE_BUTONS)[number];
+export type BorderPositionType = (typeof POSITIONS)[number] | 'none';
+export type ContextColorType = (typeof CONTEXT_COLORS)[number];

@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+code {
+	background: #ccc;
+	border-radius: 4px;
+	color: var(--primary);
+	font-family:
+		source-code-pro,
+		Menlo,
+		Monaco,
+		Consolas,
+		Courier New,
+		monospace;
+	padding: 0 4px;
+}
+
+a {
+	color: var(--primary);
+}
