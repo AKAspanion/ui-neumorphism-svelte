@@ -1,10 +1,128 @@
 <script lang="ts">
-	import { Avatar, Alert, H6, Badge, Button, Fab } from '@lib';
+	import { Avatar, Alert, H6, Badge, Button, Fab, IconButton, ToggleButtonGroup } from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
-	import { mdiBell, mdiCalendar, mdiCheckCircle, mdiFolder } from '@mdi/js';
+	import ToggleButton from '@lib/components/toggle-button/ToggleButton.svelte';
+	import {
+		mdiBell,
+		mdiBroom,
+		mdiCalendar,
+		mdiCheckCircle,
+		mdiFolder,
+		mdiFormatAlignJustify,
+		mdiFormatBold,
+		mdiFormatItalic,
+		mdiFormatUnderline,
+		mdiOpacity,
+		mdiRun,
+		mdiSpeaker,
+		mdiStar,
+		mdiTrashCanOutline
+	} from '@mdi/js';
+
+	let toggleActive = true;
+	let activeToggle = ['2'];
+	let multipleActiveToggle = ['2', '3'];
+
+	const multipleGroupChange = (e: CustomEvent) => {
+		multipleActiveToggle = e.detail;
+	};
+
+	const groupChange = (e: CustomEvent) => {
+		activeToggle = e.detail;
+	};
+
+	const toggleChange = () => {
+		toggleActive = !toggleActive;
+	};
 </script>
 
 <div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>ToggleButtonGroup</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center">
+		<div class="flex flex-col items-center">
+			<ToggleButtonGroup value={activeToggle} on:change={groupChange}>
+				<ToggleButton value="1" color="var(--primary)">
+					<Icon path={mdiFormatBold} size={0.9} />
+				</ToggleButton>
+				<ToggleButton value="2">
+					<Icon path={mdiFormatItalic} size={0.9} />
+				</ToggleButton>
+				<ToggleButton value="3">
+					<Icon path={mdiFormatUnderline} size={0.9} />
+				</ToggleButton>
+			</ToggleButtonGroup>
+
+			<div class="flex flex-col items-center p-3">
+				<div>active</div>
+				<div>[{activeToggle}]</div>
+			</div>
+		</div>
+		<div class="flex flex-col items-center">
+			<ToggleButtonGroup
+				multiple
+				value={multipleActiveToggle}
+				color="var(--primary)"
+				on:change={multipleGroupChange}
+			>
+				<ToggleButton value="1">
+					<Icon path={mdiFormatBold} size={0.9} />
+				</ToggleButton>
+				<ToggleButton value="2">
+					<Icon path={mdiFormatItalic} size={0.9} />
+				</ToggleButton>
+				<ToggleButton value="3">
+					<Icon path={mdiFormatUnderline} size={0.9} />
+				</ToggleButton>
+				<ToggleButton disabled value="4">
+					<Icon path={mdiFormatAlignJustify} size={0.9} />
+				</ToggleButton>
+			</ToggleButtonGroup>
+			<div class="flex flex-col items-center p-3">
+				<div>multiple active</div>
+				<div>[{multipleActiveToggle}]</div>
+			</div>
+		</div>
+	</div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>ToggleButton</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center">
+		<ToggleButton active={toggleActive} on:click={toggleChange}>
+			<Icon path={mdiFormatBold} size={0.9} />
+		</ToggleButton>
+		<ToggleButton color="var(--primary)" active={toggleActive} on:click={toggleChange}>
+			<Icon path={mdiFormatUnderline} size={0.9} />
+		</ToggleButton>
+		<div>
+			active: {toggleActive}
+		</div>
+	</div>
+
+	<div>------------------------------------------------------------------------------</div>
+	<H6>IconButton</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center">
+		<IconButton size="small">
+			<Icon path={mdiRun} size={0.8} />
+		</IconButton>
+		<IconButton rounded text={false} color="var(--error)">
+			<Icon path={mdiOpacity} size={1} />
+		</IconButton>
+		<IconButton disabled>
+			<Icon path={mdiTrashCanOutline} size={1} />
+		</IconButton>
+		<IconButton text={false} size="large" color="var(--warning)">
+			<Icon path={mdiStar} size={1} />
+		</IconButton>
+		<IconButton color="var(--primary)" rounded>
+			<Icon path={mdiSpeaker} size={1} />
+		</IconButton>
+		<IconButton color="var(--success)" outlined>
+			<Icon path={mdiBroom} size={1} />
+		</IconButton>
+	</div>
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Fab</H6>
 	<div class="mb-6" />

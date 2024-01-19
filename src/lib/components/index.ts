@@ -11,5 +11,6 @@ export * from './icon';
 export * from './icon-button';
 export * from './spacer';
 export * from './toggle-button';
+export * from './toggle-button-group';
 export * from './typography';
 export * from './typography/types';

@@ -3,6 +3,8 @@
 	import type { IconButtonProps } from './IconButton.types.ts';
 
 	type $$Props = IconButtonProps;
+
+	export let text = true;
 </script>
 
 <Button
@@ -15,7 +17,7 @@
 	on:mouseover
 	on:mouseenter
 	on:mouseleave
-	text
+	{text}
 	type="icon"
 	block={false}
 	depressed={false}

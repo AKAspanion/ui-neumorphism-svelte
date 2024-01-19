@@ -63,7 +63,9 @@
 	{id}
 	on:click
 	on:focus
+	on:blur
 	on:mouseup
+	on:mouseout
 	on:mousedown
 	on:mousemove
 	on:mouseover

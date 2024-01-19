@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Card, H3, H6, Icon, IconButton, Subtitle2 } from '@lib';
+	import { Card, H3, Icon, IconButton, Subtitle2 } from '@lib';
 	import { ToggleButton } from '@lib/components/toggle-button';
-	import { getTheme, toggleDarkTheme } from '@lib/theme';
+	import { getTheme } from '@lib/theme';
 	import { mdiNpm, mdiMenu, mdiGithub, mdiLightbulb, mdiLightbulbOutline } from '@mdi/js';
 
 	import { createEventDispatcher } from 'svelte';
@@ -64,7 +64,7 @@
 		<IconButton on:click={openGithub}>
 			<Icon path={mdiGithub} size={1} />
 		</IconButton>
-		<ToggleButton on:change={onDarkChange}>
+		<ToggleButton active={$theme.dark} on:change={onDarkChange}>
 			<Icon path={$theme.dark ? mdiLightbulbOutline : mdiLightbulb} size={1} />
 		</ToggleButton>
 	</Card>
