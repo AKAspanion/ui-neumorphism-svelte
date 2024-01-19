@@ -7,7 +7,7 @@ export type CommonProps = {
 	style?: string;
 };
 
-export type SizesType = (typeof SIZES)[number];
-export type ButtonType = (typeof ALTERNATE_BUTONS)[number];
+export type SizesType = (typeof SIZES)[number] | 'none';
+export type ButtonType = (typeof ALTERNATE_BUTONS)[number] | 'none';
 export type BorderPositionType = (typeof POSITIONS)[number] | 'none';
-export type ContextColorType = (typeof CONTEXT_COLORS)[number];
+export type ContextColorType = (typeof CONTEXT_COLORS)[number] | 'none';
