@@ -19,9 +19,11 @@
 		H5,
 		Switch,
 		Radio,
-		Body1
+		Body1,
+		ProgressLinear
 	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
+	import ProgressCircular from '@lib/components/progress/ProgressCircular.svelte';
 	import ToggleButton from '@lib/components/toggle-button/ToggleButton.svelte';
 	import {
 		mdiBell,
@@ -35,6 +37,7 @@
 		mdiFormatItalic,
 		mdiFormatUnderline,
 		mdiHeart,
+		mdiNumeric10,
 		mdiOpacity,
 		mdiRun,
 		mdiShareVariant,
@@ -65,6 +68,77 @@
 </script>
 
 <div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Progress Linear</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 flex-col items-center flex-wrap w-full">
+		<ProgressLinear value={40} />
+		<ProgressLinear value={60} />
+		<ProgressLinear value={80} />
+		<ProgressLinear value={40} color="var(--primary)" />
+		<ProgressLinear value={40} color="var(--error)" />
+		<ProgressLinear value={40} color="var(--success)" />
+		<ProgressLinear indeterminate color="var(--primary)" />
+		<ProgressLinear indeterminate color="var(--error)" />
+		<ProgressLinear indeterminate color="var(--success)" />
+		<ProgressLinear height={10} value={40} color="var(--primary)" />
+		<ProgressLinear height={20} value={60} color="var(--error)" />
+		<ProgressLinear height={30} value={80} color="var(--success)" />
+		<ProgressLinear height={10} value={40} color="var(--primary)" />
+		<ProgressLinear height={20} value={60} color="var(--error)" />
+		<ProgressLinear height={30} value={80} color="var(--success)" />
+		<ProgressLinear bordered value={40} color="var(--primary)" />
+		<ProgressLinear bordered value={40} color="var(--error)" />
+		<ProgressLinear bordered value={40} color="var(--success)" />
+		<ProgressLinear fillHeight height={4} value={40} color="var(--primary)" />
+		<ProgressLinear fillHeight height={8} value={40} color="var(--error)" />
+		<ProgressLinear fillHeight height={12} value={40} color="var(--success)" />
+	</div>
+
+	<div class="mb-6" />
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Progress Circular</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center flex-wrap w-full">
+		<ProgressCircular value={20} />
+		<ProgressCircular value={40} />
+		<ProgressCircular value={60} />
+		<ProgressCircular value={80} />
+		<ProgressCircular value={100} />
+		<ProgressCircular value={20} color="var(--primary)" />
+		<ProgressCircular value={40} color="var(--info)" />
+		<ProgressCircular value={60} color="var(--warning)" />
+		<ProgressCircular value={80} color="var(--success)" />
+		<ProgressCircular value={100} color="var(--error)" />
+		<ProgressCircular indeterminate color="var(--primary)" />
+		<ProgressCircular indeterminate color="var(--info)" />
+		<ProgressCircular indeterminate color="var(--warning)" />
+		<ProgressCircular indeterminate color="var(--success)" />
+		<ProgressCircular indeterminate color="var(--error)" />
+		<ProgressCircular indeterminate size={64} width={8} color="var(--primary)" />
+		<ProgressCircular indeterminate size={36} width={4} color="var(--info)" />
+		<ProgressCircular indeterminate size={64} width={8} color="var(--warning)" />
+		<ProgressCircular indeterminate size={36} width={4} color="var(--success)" />
+		<ProgressCircular indeterminate size={64} width={8} color="var(--error)" />
+		<ProgressCircular elevated value={20} size={64} width={8} color="var(--primary)" />
+		<ProgressCircular elevated value={40} size={36} width={4} color="var(--info)" />
+		<ProgressCircular elevated value={60} size={64} width={8} color="var(--warning)" />
+		<ProgressCircular elevated value={80} size={36} width={4} color="var(--success)" />
+		<ProgressCircular elevated value={100} size={64} width={8} color="var(--error)" />
+		<ProgressCircular value={10} color="var(--primary)">
+			<Icon path={mdiNumeric10} size={0.9} />
+		</ProgressCircular>
+		<ProgressCircular value={20} color="var(--info)" label="40" />
+		<ProgressCircular value={40} color="var(--warning)">60</ProgressCircular>
+		<ProgressCircular value={80} color="var(--success)" label="80" />
+		<ProgressCircular value={100} color="var(--error)">100</ProgressCircular>
+		<ProgressCircular flat value={20} size={64} width={8} color="var(--primary)" />
+		<ProgressCircular flat value={40} size={36} width={4} color="var(--info)" />
+		<ProgressCircular flat value={60} size={64} width={8} color="var(--warning)" />
+		<ProgressCircular flat value={80} size={36} width={4} color="var(--success)" />
+		<ProgressCircular flat value={100} size={64} width={8} color="var(--error)" />
+	</div>
+	<div class="mb-6" />
 	<!-- <div>------------------------------------------------------------------------------</div>
 	<H6>Checkbox</H6>
 	<div class="mb-6" />

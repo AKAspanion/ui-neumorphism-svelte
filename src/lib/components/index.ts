@@ -9,6 +9,7 @@ export * from './divider';
 export * from './fab';
 export * from './icon';
 export * from './icon-button';
+export * from './progress';
 export * from './radio';
 export * from './spacer';
 export * from './switch';
