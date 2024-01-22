@@ -16,7 +16,10 @@
 		CardAction,
 		Spacer,
 		Subtitle2,
-		H5
+		H5,
+		Switch,
+		Radio,
+		Body1
 	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import ToggleButton from '@lib/components/toggle-button/ToggleButton.svelte';
@@ -40,7 +43,7 @@
 		mdiTrashCanOutline
 	} from '@mdi/js';
 
-	let toggleActive = true;
+	let toggleActive = false;
 	let activeToggle = ['2'];
 	let multipleActiveToggle = ['2', '3'];
 
@@ -55,9 +58,56 @@
 	const toggleChange = () => {
 		toggleActive = !toggleActive;
 	};
+
+	const selectionChange = (e: CustomEvent) => {
+		toggleActive = !toggleActive;
+	};
 </script>
 
 <div>
+	<!-- <div>------------------------------------------------------------------------------</div>
+	<H6>Checkbox</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-start">
+		<Checkbox color="var(--error)" value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+		<Checkbox color="var(--primary)" value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+		<Checkbox value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+		<Checkbox disabled value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+		<Checkbox disabled value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+		<Checkbox color="var(--success)" value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Checkbox</Body1>
+		</Checkbox>
+	</div> -->
+	<div class="mb-6" />
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Radio</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-start">
+		<Radio value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Radio</Body1>
+		</Radio>
+	</div>
+	<div class="mb-6" />
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Switch</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-start">
+		<Switch value={toggleActive} on:change={selectionChange}>
+			<Body1 slot="label">Switch</Body1>
+		</Switch>
+	</div>
+	<div class="mb-6" />
+
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Card</H6>
 	<div class="mb-6" />

@@ -61,6 +61,7 @@ a {
 a {
 	text-decoration: none;
 	color: var(--primary);
+	box-sizing: border-box;
 }
 
 a:hover {
@@ -69,11 +70,7 @@ a:hover {
 
 *:focus {
 	outline: none;
-	box-shadow: none;
-}
-
-*[tabindex]:focus {
-	border: 1px solid red;
+	border: 0px solid var(--primary);
 }
 
 body {
@@ -109,6 +106,7 @@ code {
 	justify-content: center;
 	margin: 4px 8px !important;
 	padding: 4px !important;
+	position: relative;
 }
 
 .d-dummy {

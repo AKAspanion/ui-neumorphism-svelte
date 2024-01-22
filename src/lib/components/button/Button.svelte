@@ -5,7 +5,6 @@
 	import { classes } from '@lib/utils/cs';
 	import { getTheme } from '@lib/theme';
 	import { SIZES } from '@lib/assets';
-	import type { ButtonType } from '@lib/types/common';
 	import './Button.css';
 
 	const theme = getTheme();
