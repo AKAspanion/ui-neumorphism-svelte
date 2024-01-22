@@ -1,5 +1,23 @@
 <script lang="ts">
-	import { Avatar, Alert, H6, Badge, Button, Fab, IconButton, ToggleButtonGroup } from '@lib';
+	import {
+		Avatar,
+		Alert,
+		H6,
+		Badge,
+		Button,
+		Fab,
+		IconButton,
+		ToggleButtonGroup,
+		Card,
+		CardHeader,
+		CardMedia,
+		Body2,
+		CardContent,
+		CardAction,
+		Spacer,
+		Subtitle2,
+		H5
+	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import ToggleButton from '@lib/components/toggle-button/ToggleButton.svelte';
 	import {
@@ -7,13 +25,16 @@
 		mdiBroom,
 		mdiCalendar,
 		mdiCheckCircle,
+		mdiDotsVertical,
 		mdiFolder,
 		mdiFormatAlignJustify,
 		mdiFormatBold,
 		mdiFormatItalic,
 		mdiFormatUnderline,
+		mdiHeart,
 		mdiOpacity,
 		mdiRun,
+		mdiShareVariant,
 		mdiSpeaker,
 		mdiStar,
 		mdiTrashCanOutline
@@ -37,6 +58,73 @@
 </script>
 
 <div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Card</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-start">
+		<Card style="width: 275px;">
+			<CardContent>
+				<Subtitle2 secondary style="margin-bottom: 4px;">Word of the day</Subtitle2>
+				<H5>
+					be<span>•</span>nev<span>•</span>o<span>•</span>lent
+				</H5>
+				<Subtitle2 secondary style="margin-bottom: 4px;">adjective</Subtitle2>
+				<Body2>
+					well meaning and kindly.
+					<br />
+					"a benevolent smile"
+				</Body2>
+			</CardContent>
+			<CardAction>
+				<Button text color="var(--primary)">Learn More</Button>
+			</CardAction>
+		</Card>
+		<Card style="width: 275px;">
+			<CardMedia src="https://akaspanion.github.io/ui-neumorphism/images/beaches-2.jpg">
+				<H6 dark slot="title">Top 10 Indian beaches</H6>
+			</CardMedia>
+			<CardContent>
+				<Subtitle2 secondary style="margin-bottom: 4px;">Number 1</Subtitle2>
+				<Body2>
+					Radhanagar Beach <br />
+					Havock Island, Andaman
+				</Body2>
+			</CardContent>
+			<CardAction>
+				<Button text color="var(--primary)">Share</Button>
+				<Button text color="var(--primary)">Explore</Button>
+			</CardAction>
+		</Card>
+		<Card style="width: 305px;">
+			<CardHeader>
+				<H6 slot="title">Lorem ipsum</H6>
+				<Subtitle2 slot="subtitle" secondary>Lorem ipsum dolor sit amet</Subtitle2>
+				<IconButton slot="action">
+					<Icon path={mdiDotsVertical} size={1}></Icon>
+				</IconButton>
+			</CardHeader>
+			<CardMedia src="https://akaspanion.github.io/ui-neumorphism/images/beaches-2.jpg" />
+			<CardContent>
+				<Body2>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque architecto
+					reprehenderit magnam esse est id ipsum ut delectus. Consequuntur suscipit hic
+					eum ea adipisci, illum sed iure saepe aperiam quia!
+				</Body2>
+			</CardContent>
+			<CardAction>
+				<Button text color="var(--primary)">Read</Button>
+				<Button text color="var(--primary)">Bookmark</Button>
+				<Spacer />
+				<IconButton>
+					<Icon path={mdiHeart} size={1}></Icon>
+				</IconButton>
+				<IconButton>
+					<Icon path={mdiShareVariant} size={1}></Icon>
+				</IconButton>
+			</CardAction>
+		</Card>
+	</div>
+	<div class="mb-6" />
 	<div>------------------------------------------------------------------------------</div>
 	<H6>ToggleButtonGroup</H6>
 	<div class="mb-6" />

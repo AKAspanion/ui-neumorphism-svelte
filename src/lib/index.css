@@ -69,6 +69,11 @@ a:hover {
 
 *:focus {
 	outline: none;
+	box-shadow: none;
+}
+
+*[tabindex]:focus {
+	border: 1px solid red;
 }
 
 body {

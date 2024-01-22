@@ -18,6 +18,7 @@
 .nu-card-action,
 .nu-card-header,
 .nu-card-content {
+	overflow: hidden;
 	font-size: 16px;
 	border-radius: 8px;
 	color: var(--text-color);

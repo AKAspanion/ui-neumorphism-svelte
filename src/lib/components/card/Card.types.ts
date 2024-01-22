@@ -1,20 +1,27 @@
 import type { CommonProps } from '@lib/types/common';
 
-export type CardProps = CommonProps & {
-	bordered?: boolean;
-	disabled?: boolean;
+type CardContextProps = {
 	dark?: boolean;
-	elevation?: number;
-	flat?: boolean;
-	height?: number;
-	inset?: boolean;
-	loading?: boolean;
-	maxHeight?: number;
-	maxWidth?: number;
-	minHeight?: number;
-	minWidth?: number;
-	outlined?: boolean;
 	rounded?: boolean;
-	container?: boolean;
-	width?: string;
+	disabled?: boolean;
+	outlined?: boolean;
+	bordered?: boolean;
 };
+
+export type CardContext = CardContextProps;
+
+export type CardProps = CommonProps &
+	CardContext & {
+		elevation?: number;
+		flat?: boolean;
+		height?: number;
+		inset?: boolean;
+		loading?: boolean;
+		maxHeight?: number;
+		maxWidth?: number;
+		minHeight?: number;
+		minWidth?: number;
+		rounded?: boolean;
+		container?: boolean;
+		width?: string;
+	};

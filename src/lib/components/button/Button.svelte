@@ -58,6 +58,7 @@
 	};
 </script>
 
+<!-- svelte-ignore a11y-interactive-supports-focus -->
 <div
 	{...$$restProps}
 	{id}
@@ -71,7 +72,6 @@
 	on:mouseover
 	on:mouseenter
 	on:mouseleave
-	tabindex="0"
 	role="button"
 	class={`${getClasses('container', $theme.dark)} ${normalize($$restProps.class)}`}
 	style={`${styleToString({
