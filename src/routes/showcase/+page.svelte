@@ -11,6 +11,8 @@
 		Card,
 		CardHeader,
 		CardMedia,
+		Carousel,
+		CarouselItem,
 		Body2,
 		CardContent,
 		CardAction,
@@ -20,7 +22,8 @@
 		Switch,
 		Radio,
 		Body1,
-		ProgressLinear
+		ProgressLinear,
+		H3
 	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import ProgressCircular from '@lib/components/progress/ProgressCircular.svelte';
@@ -68,6 +71,26 @@
 </script>
 
 <div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Carousel</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 flex-col items-center flex-wrap w-full">
+		<Carousel cycle>
+			<CarouselItem style={'background:var(--info);'}>
+				<H3>Slide 1</H3>
+			</CarouselItem>
+			<CarouselItem style={'background:var(--error);'}>
+				<H3>Slide 2</H3>
+			</CarouselItem>
+			<CarouselItem style={'background:var(--success);'}>
+				<H3>Slide 3</H3>
+			</CarouselItem>
+			<CarouselItem style={'background:var(--warning);'}>
+				<H3>Slide 4</H3>
+			</CarouselItem>
+		</Carousel>
+	</div>
+	<div class="mb-6" />
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Progress Linear</H6>
 	<div class="mb-6" />
