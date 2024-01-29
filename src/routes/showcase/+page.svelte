@@ -24,7 +24,8 @@
 		Body1,
 		ProgressLinear,
 		H3,
-		Chip
+		Chip,
+		Checkbox
 	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import ProgressCircular from '@lib/components/progress/ProgressCircular.svelte';
@@ -55,7 +56,7 @@
 		mdiTrashCanOutline
 	} from '@mdi/js';
 
-	let toggleActive = false;
+	let toggleActive = true;
 	let activeToggle = ['2'];
 	let multipleActiveToggle = ['2', '3'];
 
@@ -251,6 +252,18 @@
 			<Body1 slot="label">Checkbox</Body1>
 		</Checkbox>
 	</div> -->
+	<div class="mb-6" />
+	<div>------------------------------------------------------------------------------</div>
+	<H6 id="checkbox">Checkbox</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center flex-wrap w-full">
+		<Checkbox color="var(--error)" value={toggleActive} on:change={selectionChange} />
+		<Checkbox color="var(--primary)" />
+		<Checkbox />
+		<Checkbox disabled />
+		<Checkbox disabled value={toggleActive} />
+		<Checkbox value={toggleActive} color="var(--success)" />
+	</div>
 	<div class="mb-6" />
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Radio</H6>

@@ -1,4 +1,5 @@
 import type { CommonProps } from '@lib/types/common';
+import type { HTMLLabelAttributes } from 'svelte/elements';
 
 const mapping = {
 	h1: 'h1',
@@ -17,9 +18,10 @@ const mapping = {
 
 export type TypographyType = keyof typeof mapping;
 
-export type TypographyProps = CommonProps & {
-	dark?: boolean;
-	disabled?: boolean;
-	secondary?: boolean;
-	type?: TypographyType;
-};
+export type TypographyProps = HTMLLabelAttributes &
+	CommonProps & {
+		dark?: boolean;
+		disabled?: boolean;
+		secondary?: boolean;
+		type?: TypographyType;
+	};

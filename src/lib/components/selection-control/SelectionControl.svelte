@@ -63,7 +63,6 @@
 		{id}
 		{value}
 		checked={value}
-		tabindex="0"
 		style={getInputStyles()}
 		class={getClasses('input', darkProp)}
 		type={inputType === 'switch' ? 'checkbox' : inputType}
