@@ -4,9 +4,12 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { classes } from '@lib/utils/cs';
 	import { normalize } from '@lib/utils/fn';
+	import { getTheme } from '@lib';
 	import './Carousel.css';
 
 	let dispatch = createEventDispatcher();
+
+	const theme = getTheme();
 
 	export let value = 0;
 	export let height = 400;
@@ -24,6 +27,7 @@
 	let timer: NodeJS.Timeout;
 	let disabledTimeout: NodeJS.Timeout;
 
+	$: darkProp = dark || $theme.dark;
 	$: axis = vertical ? 'y' : ('x' as SlideParams['axis']);
 
 	$: {
@@ -116,12 +120,12 @@
 		dispatch('delimiterclick', { event: e, active: ac });
 	};
 
-	const getClasses = (type: string) => {
+	const getClasses = (type: string, d?: boolean) => {
 		switch (type) {
 			case 'main':
 				return classes(`
                     nu-carousel
-                    nu-carousel--${dark ? 'dark' : 'light'}
+                    nu-carousel--${d ? 'dark' : 'light'}
                     ${normalize($$restProps.class)}
                 `);
 			default:
@@ -142,7 +146,7 @@
 	const items = [1, 2, 3, 4];
 </script>
 
-<div style={getStyles()} class={getClasses('main')}>
+<div style={getStyles()} class={getClasses('main', darkProp)}>
 	<div
 		class={getClasses('nu-carousel-container')}
 		transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis }}
@@ -152,38 +156,42 @@
 	{#if !hideDelimiters}
 		<div class={getClasses('nu-carousel-controls')}>
 			{#each items as item, index}
-				<button
-					type="button"
+				<div
+					role="button"
+					tabindex="-1"
 					class={`${!$$slots.delimiterIcon ? getClasses('nu-carousel-delimiter') : ''} ${
 						active === index && !$$slots.delimiterIcon
 							? getClasses('nu-carousel-delimiter--active')
 							: ''
 					}`}
 					on:click={(e) => handleDelimiterClick(e, index)}
+					on:keydown={(e) => handleDelimiterClick(e, index)}
 				>
 					{#if active === index}
 						<slot name="activeDelimiterIcon" />
 					{:else}
 						<slot name="delimiterIcon" />
 					{/if}
-				</button>
+				</div>
 			{/each}
 		</div>
 	{/if}
 	{#if showArrows}
-		<button
-			type="button"
+		<div
+			role="button"
+			tabindex="-1"
 			class={`${getClasses('nu-carousel-arrow nu-carousel-arrow--next')} ${
 				!showArrowsOnHover ? getClasses('nu-carousel-arrow--always') : ''
 			}`}
 			on:click={() => handleIconClick('next')}
+			on:keydown={() => handleIconClick('next')}
 		>
 			{#if $$slots.nextIcon}
 				<slot name="nextIcon" />
 			{:else}
 				<span>&rsaquo;</span>
 			{/if}
-		</button>
+		</div>
 		<button
 			type="button"
 			class={`${getClasses('nu-carousel-arrow nu-carousel-arrow--prev')} ${

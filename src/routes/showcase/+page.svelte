@@ -23,18 +23,24 @@
 		Radio,
 		Body1,
 		ProgressLinear,
-		H3
+		H3,
+		Chip
 	} from '@lib';
 	import Icon from '@lib/components/icon/Icon.svelte';
 	import ProgressCircular from '@lib/components/progress/ProgressCircular.svelte';
 	import ToggleButton from '@lib/components/toggle-button/ToggleButton.svelte';
 	import {
+		mdiAccount,
 		mdiBell,
 		mdiBroom,
+		mdiCake,
 		mdiCalendar,
+		mdiAccountCircle,
+		mdiCloseOutline,
 		mdiCheckCircle,
 		mdiDotsVertical,
 		mdiFolder,
+		mdiOpenInNew,
 		mdiFormatAlignJustify,
 		mdiFormatBold,
 		mdiFormatItalic,
@@ -71,6 +77,66 @@
 </script>
 
 <div>
+	<div>------------------------------------------------------------------------------</div>
+	<H6>Chip</H6>
+	<div class="mb-6" />
+	<div class="flex gap-6 items-center flex-wrap w-full">
+		<Chip active class="ma-3">active</Chip>
+		<Chip size="small" class="ma-3">small</Chip>
+		<Chip class="ma-3">medium</Chip>
+		<Chip size="large" class="ma-3">large</Chip>
+		<Chip label class="ma-3">label</Chip>
+		<Chip key="1" type="info" class="ma-3">info</Chip>
+		<Chip key="2" type="error" class="ma-3">error</Chip>
+		<Chip key="3" type="success" class="ma-3">success</Chip>
+		<Chip key="4" type="warning" class="ma-3">warning</Chip>
+		<Chip key="5" class="ma-3">
+			Append
+			<Icon slot="append" path={mdiAccount} size={0.68} />
+		</Chip>
+		<Chip key="6" class="ma-3">
+			Prepend
+			<Icon slot="prepend" path={mdiAccount} size={0.68} />
+		</Chip>
+		<Chip type="info" class="ma-3">
+			Happy Birthday
+			<Icon slot="append" path={mdiCake} size={0.68} />
+			<Icon slot="prepend" path={mdiAccountCircle} size={0.68} />
+		</Chip>
+		<Chip key="34" type="error" class="ma-3" closable>Closable</Chip>
+		<Chip type="warning" class="ma-3">
+			Append & Action
+			<Icon slot="append" path={mdiStar} size={0.68} />
+			<Icon slot="action" path={mdiCloseOutline} size={0.68} />
+		</Chip>
+		<Chip outlined type="success" class="ma-3">
+			Outlined
+			<Icon slot="append" path={mdiStar} size={0.68} />
+			<Icon slot="action" path={mdiCloseOutline} size={0.68} />
+		</Chip>
+		<Chip bordered type="error" class="ma-3">
+			Bordered
+
+			<Icon slot="append" path={mdiStar} size={0.68} />
+			<Icon slot="action" path={mdiCloseOutline} size={0.68} />
+		</Chip>
+		<Chip flat type="warning" class="ma-3">
+			Flat
+			<Icon slot="append" path={mdiStar} size={0.68} />
+			<Icon slot="action" path={mdiCloseOutline} size={0.68} />
+		</Chip>
+		<Chip type="error" flat bordered class="ma-3" onAction={() => console.log('close clicked')}>
+			Flat & Bordered
+
+			<Icon slot="append" path={mdiStar} size={0.68} />
+			<Icon slot="action" path={mdiCloseOutline} size={0.68} />
+		</Chip>
+		<Chip label outlined type="info" class="ma-3" link="https://github.com/AKAspanion">
+			Link & Label
+			<Icon slot="action" path={mdiOpenInNew} size={0.68} />
+		</Chip>
+	</div>
+	<div class="mb-6" />
 	<div>------------------------------------------------------------------------------</div>
 	<H6>Carousel</H6>
 	<div class="mb-6" />

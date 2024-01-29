@@ -6,6 +6,7 @@ export * from './badge';
 export * from './button';
 export * from './card';
 export * from './carousel';
+export * from './chip';
 export * from './divider';
 export * from './fab';
 export * from './icon';
